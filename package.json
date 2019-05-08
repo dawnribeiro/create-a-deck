@@ -16,5 +16,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0"
+  },
+  "dependencies": {
+    "app-app": "^4.2.4"
   }
 }
