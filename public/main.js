@@ -8,34 +8,31 @@ const deck = []
 
 const main = () => {
   console.log('page loaded')
-
-}
-for (let i = 0; i < suits.length; i++) {
-  for (let j = 0; j < ranks.length; j++) {
-    const rank = ranks[j]
+  for (let i = 0; i < suits.length; i++) {
     const suit = suits[i]
-    console.log(rank)
-    console.log(suit)
-    const card = rank + ' ' + suit
-    deck.push(card)
-
+    for (let j = 0; j < ranks.length; j++) {
+      const rank = ranks[j]
+      const card = rank + ' ' + suit
+      deck.push(card)
+    }
   }
+
+  shuffle(deck)
   console.log(deck)
 }
+const shuffle = () => {
+  for (let i = deck.length - 1; i > 0; i--) {
+    let randomPosition = Math.floor(Math.random() * (i + 1))
+    let temp = deck[i]
+    deck[i] = deck[randomPosition]
+    deck[randomPosition] = temp
+  }
+}
 
+const drawCard = () => {
+  document.querySelector('.draw.btn').textContent = '0'
 
-const dealCard = () => {}
-document.querySelector('.draw-btn').addEventListener('click', dealCard)
+}
+
+document.querySelector('.draw-btn').addEventListener('click', drawCard)
 document.addEventListener('DOMContentLoaded', main)
-
-
-
-
-
-
-
-
-
-// for i from n - 1 down to 1 do :
-//     j = random integer(where 0 <= j <= i)
-//   swap items[i] with items[j]
